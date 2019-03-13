@@ -4,13 +4,9 @@
 пар нулевой и единице (например: 11001100). Показать десятичную и
 двоичную запись этих чисел. * /
 
-
-#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include <locale>
-#include <ctype.h>
 #include <Windows.h>
 #include <stdbool.h>
 
