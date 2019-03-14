@@ -9,31 +9,9 @@
 #include <Windows.h>
 #include <stdbool.h>
 
-//Функция переводит числа из двоичной системы счисления в десятичную.
-int BinToDec(int bin) {
-	int dec = 0;
-	for (int i = 1; bin > 0; i *= 2)
-	{
-		dec += (bin % 10) * i;
-		bin /= 10;
-	}
-	return dec;
-}
-
-//Функция переводит числа из десятичной системы счисления в двоичную.
-int DecToBin(int dec) {
-	int bin = 0;
-	for (int i = 0; dec > 0; i++)
-	{
-		bin += (dec % 2) * powl(10, i);
-		dec /= 2;
-	}
-	return bin;
-}
-
 //Функция переводит переменные типа char в int.
 int CharToInt(char array[]) {
-	int a = 0;
+	unsigned int a = 0;
 	for (int i = 0; array[i] != '\0'; i++)
 	{
 		a = 10 * a + (array[i] - '0');
@@ -54,15 +32,37 @@ bool IsNumeral(char Numeral) {
 //Функция проверяет правильность ввода. 
 int InputCheck() {
 	char array[100];
-	gets_s(array);
+	gets(array);
 	for (int i = 0; i < strlen(array); i++)
 	{
 		if ((array[0] == '0') || (IsNumeral(array[i]) == false)) {
-			printf("Число введено неправильно, пожалуйста повторите ввод.\n");
+			printf("Число введено неправильно, повторите ввод.\n");
 			return InputCheck();
 		}
 	}
 	return CharToInt(array);
+}
+
+//Функция переводит числа из десятичной системы счисления в двоичную.
+int DecToBin(unsigned int dec) {
+	unsigned int bin = 0;
+	for (int i = 0; dec > 0; i++)
+	{
+		bin += (dec % 2) * powl(10, i);
+		dec /= 2;
+	}
+	return bin;
+}
+
+//Функция переводит числа из двоичной системы счисления в десятичную.
+int BinToDec(unsigned int bin) {
+	unsigned int dec = 0;
+	for (int i = 1; bin > 0; i *= 2)
+	{
+		dec += (bin % 10) * i;
+		bin /= 10;
+	}
+	return dec;
 }
 
 int main()
@@ -71,11 +71,20 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	int m, a, b = 11, c;
+	unsigned int m, a, b = 11, c;
 	bool check = true;
 
 	printf("Введите число: ");
-	m = InputCheck();
+	//Цикл выпоняется пока не будет введено число, размер которого в двоичной системе счисления находится в диапазон значений переменной типа unsigned int [0, +4 294 967 295]     
+	while (true)
+	{
+		m = InputCheck();
+		if (m > 1023) {
+			printf("Двоичная запись вашего числа превысила диапазон значений переменной типа unsigned int, повторите ввод.\n");
+			continue;
+		}
+		break;
+	}
 	a = DecToBin(m);
 	printf("Двоичная запись вашего числа: %d\n", a);
 	c = BinToDec(b);
@@ -85,6 +94,9 @@ int main()
 	}
 	else {
 		printf("искомые числа:\n");
+		//Цикл выполняется пока числа удовлетворяющие условию не превышают заданное число m.
+		//Переменная b = 11 является двоичной записью первого такого числа.
+		//В цикле в переменную b присваиваются остальные числа путём последовательного умножения переменной b на сто  с дальнейшим умножением на сто и прибавлением одинадцати.
 		while (m >= c)
 		{
 			printf("\nв десятичной: %d\nв двоичной: %d\n", c, b);
