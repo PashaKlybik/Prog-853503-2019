@@ -1,7 +1,7 @@
 //Вариант 25
 //Сакович Влад
 #include "pch.h"
-#include <iostream>
+#include <stdio.h>
 
 int HowMany(int a) 
 {
