@@ -1,3 +1,4 @@
+//Вариант 30
 #pragma hdrstop
 #pragma argsused
 
