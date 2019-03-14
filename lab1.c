@@ -1,8 +1,7 @@
-/ * Вариант 22.
-Найти все натуральные числа, не превосходящие заданного м,
-двоичная запись
-пар нулевой и единице (например: 11001100). Показать десятичную и
-двоичную запись этих чисел. * /
+/* Найти все натуральные числа, не превосходящие заданного m,
+двоичная запись которых представляет собой последовательность
+пар нулей и единиц (например: 11001100). Показать десятичную и
+двоичную запись этих чисел.*/
 
 #include <stdio.h>
 #include <math.h>
@@ -11,8 +10,8 @@
 #include <stdbool.h>
 
 //Функция переводит числа из двоичной системы счисления в десятичную.
-int BinToDec(long int bin) {
-	long int dec = 0;
+int BinToDec(int bin) {
+	int dec = 0;
 	for (int i = 1; bin > 0; i *= 2)
 	{
 		dec += (bin % 10) * i;
@@ -22,8 +21,8 @@ int BinToDec(long int bin) {
 }
 
 //Функция переводит числа из десятичной системы счисления в двоичную.
-int DecToBin(long int dec) {
-	long int bin = 0;
+int DecToBin(int dec) {
+	int bin = 0;
 	for (int i = 0; dec > 0; i++)
 	{
 		bin += (dec % 2) * powl(10, i);
@@ -34,7 +33,7 @@ int DecToBin(long int dec) {
 
 //Функция переводит переменные типа char в int.
 int CharToInt(char array[]) {
-	long int a = 0;
+	int a = 0;
 	for (int i = 0; array[i] != '\0'; i++)
 	{
 		a = 10 * a + (array[i] - '0');
@@ -72,7 +71,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	long int m, a, b = 11, c;
+	int m, a, b = 11, c;
 	bool check = true;
 
 	printf("Введите число: ");
