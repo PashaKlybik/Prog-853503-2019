@@ -1,0 +1,49 @@
+#include <stdio.h>
+//лаба 1 вариант 1
+//протип фунции
+int check_for_value(int);
+
+int main()
+{
+	int start_value = 0, new_value, counter = 0, value_three = 1, value_four = 0, buffer;//buffer -- временная переменная
+	printf("Input number from 100 to 9999: ");
+	start_value = check_for_value(start_value);
+	new_value = start_value;
+	do
+	{//тут узнаем какое число:3-х или 4-х значное
+		start_value /= 10;
+		counter++;
+	} while (start_value > 0);
+	printf("amount of numbers:  %d", counter); printf("\n");
+	if (counter == 3)//случай, если число трёхзначное
+	{
+		for (int i = 0; i < counter; i++)
+		{
+			buffer = new_value % 10;
+			new_value /= 10;
+			value_three *= buffer;
+		}
+		printf("value_three= %d", value_three);
+	}
+	if (counter == 4)//случай, если число четырёхзначное
+	{
+		for (int i = 0; i < counter; i++) {
+			buffer = new_value % 10;
+			new_value /= 10;
+			value_four += buffer;
+		}
+		printf("value_four= %d", value_four);
+	}
+	return 0;
+}
+
+// тело функции
+int check_for_value(int n)
+{
+	while (!scanf_s("%d", &n) || (n < 100 || n>9999))
+	{
+		printf("Inccorect value. Try again pls: \n");
+		rewind(stdin);
+	}
+	return n;
+}
