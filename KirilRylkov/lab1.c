@@ -73,7 +73,7 @@ int BinToDec(unsigned long long bin) {
 int main()
 {
 	int m, a;
-	unsigned long long b = 11, c;
+	unsigned long long b = 11;
 	bool check = true;
 
 	printf("Insert the number : ");
