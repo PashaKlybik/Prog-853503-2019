@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>//variant 25
+//variant 25
 //sakovich vlad
 #include <stdio.h>
 #include <stdlib.h>
