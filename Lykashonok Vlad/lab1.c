@@ -12,7 +12,6 @@ int main()
 
 	for (int number = 1; number < max; number++)
 	{
-		
 		if (isPerfect(number))
 		{
 			printf_s("%d\n", number);
@@ -34,9 +33,11 @@ _Bool isPerfect(int number)
 		{
 			//если делитель, то прибавляем
 			divider_sum += i;
-			//если сумма больше - закончить цикл
+			//чтобы само число не входило в делители
+			divider_sum += number / i;
 			if (divider_sum > number) return 0;
 		}
+		
 	}
 	//если сумма делителей равна числу, то вернёт 1
 	return number == divider_sum;
