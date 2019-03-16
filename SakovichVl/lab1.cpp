@@ -1,7 +1,8 @@
-//Вариант 25
-//Сакович Влад
+//variant 25
+//sakovich vlad
 #include "pch.h"
 #include <iostream>
+#include <malloc.h>
 
 int HowMany(int a)
 {
@@ -20,8 +21,6 @@ void perevod(int *arr, int a, int num)
 	{
 		arr[i] = num % 2;
 		num /= 2;
-	}
-	for (int i = 0; i < a; i++) {
 	}
 }
 void out(int num, int *arr, int a)
@@ -51,10 +50,10 @@ int main()
 	scanf_s("%d", &m);
 	for (int i = 1; i < m; i++)
 	{
-		kolvo = HowMany(i);
-		int *arr = new int[kolvo];
+		kolvo=HowMany(i);
+		arr = (int*)malloc(kolvo* sizeof(int));
 		perevod(arr, kolvo, i);
 		out(i, arr, kolvo);
-		delete[] arr;
+		free(arr);
 	}
 }
