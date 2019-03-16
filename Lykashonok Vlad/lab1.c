@@ -8,16 +8,19 @@ int main()
 	long int max;
 	printf_s("Input border\n");
 	scanf_s("%i", &max);
-	for (int number = 1; number < max; number++)
+
+	for (int number = 0; number < max; number += 2)
 	{
+		//все идеальные числа чётные, поэтому ^ смотрим чётные
 		//просматривает каждое число на идеальность
-		if (isPerfect(number))
+		if (isPerfect(number) && number != 0)
 		{
 			printf_s("%d\n", number);
 		}
 	}
 	printf_s("done");
 	scanf_s("%i", &max);
+
 	return 0;
 }
 
@@ -35,8 +38,9 @@ _Bool isPerfect(int number)
 }
 
 
-//6,
-//28,
-//496,
-//8128,
-//33 550 336, Уже на этом числе время проверки > 10 минут (действительно в результате находит)
+//            6,
+//           28,
+//          496,
+//        8 128,
+//   33 550 336, Уже на этом числе время проверки > 10 минут (действительно в результате находит)
+//8 589 869 056 
