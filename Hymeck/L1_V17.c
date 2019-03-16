@@ -12,9 +12,8 @@
   #define _tmain main
 #endif
 
-int _tmain(int argc, _TCHAR* argv[]) 
+void FunctionPrint()
 {
-
 	int ed, dec, sot; // объявление переменных для записи цифр единицы, десятка и сотни чисел из заданного промежутка
 	int i;
 	for (i = 100; i <= 999; i++)
@@ -28,7 +27,12 @@ int _tmain(int argc, _TCHAR* argv[])
 			printf("%d ", i);
 
 		}
-	}
+	}		
+}
+
+int _tmain(int argc, _TCHAR* argv[]) 
+{
+	FunctionPrint();
 	getch();
 	return 0;
 }
