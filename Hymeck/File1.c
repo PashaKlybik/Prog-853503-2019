@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <conio.h>
-//nclude <stdlib.h>
 
 #ifdef _WIN32
 #include <tchar.h>
@@ -15,14 +14,15 @@
 int _tmain(int argc, _TCHAR* argv[]) 
 {
 
-	int ed, dec, sot;
+	int ed, dec, sot; // объявление переменных для записи цифр единицы, десятка и сотни чисел из заданного промежутка
 	int i;
 	for (i = 100; i <= 999; i++)
 	{
-		ed = i% 10;
-		dec = (i/10) % 10;
-		sot = i/100;
-		if (i == ed*ed*ed + dec*dec*dec + sot*sot*sot)
+		ed = i% 10; // формула рассчета цифры единицы
+		dec = (i/10) % 10; // формула рассчета цифры десятка 
+		sot = i/100; // формула рассчета цифры сотни
+		if (i == ed*ed*ed + dec*dec*dec + sot*sot*sot) // условие задания: если сумма кубов цифр числа равна числу, то выводим через пробел это число.
+		// и так от 100 до 999 ищем
 		{
 			printf("%d ", i);
 
