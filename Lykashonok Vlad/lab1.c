@@ -26,16 +26,14 @@ int main()
 
 _Bool isPerfect(int number)
 {
-	int divider_sum = 0, sqrt_num = (int)sqrt(number) + 1;
-	for (int i = 1; i< sqrt_num; i++)
+	int divider_sum = 1, sqrt_num = (int)sqrt(number) + 1;
+	for (int i = 2; i< sqrt_num; i++)
 	{
 		//находим у числа все делители
 		if (number%i == 0 && i * i != number && i != number)
 		{
 			//если делитель, то прибавляем
 			divider_sum += i;
-			//чтобы само число не входило в делители
-			if (number != number/i) divider_sum += number / i;
 			//если сумма больше - закончить цикл
 			if (divider_sum > number) return 0;
 		}
