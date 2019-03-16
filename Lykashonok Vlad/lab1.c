@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 //14 вариант
 
 _Bool isPerfect(int);
@@ -9,11 +10,10 @@ int main()
 	printf_s("Input border\n");
 	scanf_s("%i", &max);
 
-	for (int number = 0; number < max; number += 2)
+	for (int number = 1; number < max; number++)
 	{
-		//все идеальные числа чётные, поэтому ^ смотрим чётные
-		//просматривает каждое число на идеальность
-		if (isPerfect(number) && number != 0)
+		
+		if (isPerfect(number))
 		{
 			printf_s("%d\n", number);
 		}
@@ -26,17 +26,23 @@ int main()
 
 _Bool isPerfect(int number)
 {
-	int divider_sum = 0;
-	for (int divider = 1; divider < number - 1; divider++)
+	int divider_sum = 0, sqrt_num = (int)sqrt(number) + 1;
+	for (int i = 1; i< sqrt_num; i++)
 	{
-		// сумма делителей
-		if (!(number%divider))
-			divider_sum += divider;
+		//находим у числа все делители
+		if (number%i == 0 && i * i != number && i != number)
+		{
+			//если делитель, то прибавляем
+			divider_sum += i;
+			//чтобы само число не входило в делители
+			if (number != number/i) divider_sum += number / i;
+			//если сумма больше - закончить цикл
+			if (divider_sum > number) return 0;
+		}
 	}
 	//если сумма делителей равна числу, то вернёт 1
 	return number == divider_sum;
 }
-
 
 //            6,
 //           28,
