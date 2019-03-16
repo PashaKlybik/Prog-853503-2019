@@ -9,8 +9,9 @@
 #include <stdbool.h>
 
 //Функция переводит переменные типа char в int.
-unsigned long long CharToInt(char array[]) {
+int CharToInt(char array[]) {
 	unsigned long long a = 0;
+	
 	for (int i = 0; array[i] != '\0'; i++)
 	{
 		a = 10 * a + (array[i] - '0');
@@ -20,21 +21,24 @@ unsigned long long CharToInt(char array[]) {
 
 //Функция проверяет является ли каждая символ введённой переменной числом
 bool IsNumeral(char Numeral) {
-	if (Numeral >= '0' && Numeral <= '9') {
+	if (Numeral >= '0' && Numeral <= '9') 
+	{
 		return true;
 	}
-	else {
+	else 
+	{
 		return false;
 	}
 }
 
 //Функция проверяет правильность ввода. 
-unsigned long long InputCheck() {
+int InputCheck() {
 	char array[10];
 	gets(array);
 	for (int i = 0; i < strlen(array); i++)
 	{
-		if ((array[0] == '0') || (IsNumeral(array[i]) == false)) {
+		if ((array[0] == '0') || (IsNumeral(array[i]) == false)) 
+		{
 			printf("The number is entered incorrectly, repeat input.\n");
 			return InputCheck();
 		}
@@ -46,6 +50,7 @@ unsigned long long InputCheck() {
 void DecToBin(int dec) {
 	char bin[20];
 	int i = 0;
+	
 	printf("Binary record of your number : ");
 	for (i; dec != 0; i++)
 	{
@@ -57,7 +62,9 @@ void DecToBin(int dec) {
 	{
 		printf("%c", bin[j]);
 	}
+	printf("\n");
 }
+
 
 //Функция переводит числа из двоичной системы счисления в десятичную.
 int BinToDec(unsigned long long bin) {
@@ -73,41 +80,44 @@ int BinToDec(unsigned long long bin) {
 int main()
 {
 	int m, a;
-	unsigned long long b = 11;
+	unsigned long long b = 11, c;
 	bool check = true;
 
 	printf("Insert the number : ");
-	//Цикл выпоняется пока не будет введено число, размер которого в двоичной системе счисления находится в диапазон значений переменной типа unsigned long long [0, 18 446 744 073 709 551 615]     
+	//Цикл выполняется пока не будет введено число, размер которого в двоичной системе счисления находится в диапазон значений переменной типа unsigned long long [0, 18 446 744 073 709 551 615]     
 	while (true)
 	{
 		m = InputCheck();
 		//1048575 - это максимальное десятичное число которое при переводе в двоичную систему счисления находится в этом диапазоне
-		if (m > 1048575) {
+		if (m > 1048575) 
+		{
 			printf("Binary record of your number exceeded the range of values of the unsigned long long variable, repeat input. \n");
 			continue;
 		}
 		break;
 	}
 	DecToBin(m);
-
 	a = BinToDec(b);
 	//Поиск чисел удовлетворяющих условию.
-	if (m < a) {
+	if (m < a) 
+	{
 		printf("Up to %llu numbers satisfying the condition do not exist. \n", m);
 	}
 	else {
 		printf("\nRequired numbers: \n");
 		//Цикл выполняется пока числа удовлетворяющие условию не превышают заданное число m.
 		//Переменная b = 11 является двоичной записью первого такого числа.
-		//В цикле в переменную b присваиваются остальные числа путём последовательного умножения переменной b на сто  с дальнейшим умножением на сто и прибавлением одинадцати.
+		//В цикле в переменную b присваиваются остальные числа путём последовательного умножения переменной b на сто  с дальнейшим умножением на сто и прибавлением одиннадцати.
 		while (m >= a)
 		{
 			printf("\nin decimal: %llu\nin binary: %llu\n", a, b);
-			if (check == true) {
+			if (check == true) 
+			{
 				b = b * 100;
 				check = false;
 			}
-			else {
+			else 
+			{
 				b = (b * 100) + 11;
 				check = true;
 			}
