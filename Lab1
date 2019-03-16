@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 //протип фунции
-int check_for_value(int);
+int check(int);
 
 int main()
 {
 	int start_value = 0, value_three = 1, value_four = 0, buffer;//buffer -- временная переменная
 	printf("Input number from 100 to 9999: ");
-	start_value = check_for_value(start_value);//Проверяем введённое с клавиатуры числo
+	start_value = check(start_value);//Проверяем введённое с клавиатуры числo
 	if (start_value < 1000)//случай, если число трёхзначное
 	{
 		while (start_value > 0)//условие выхода
@@ -32,7 +32,7 @@ int main()
 }
 
 // тело функции
-int check_for_value(int n)
+int check(int n)
 {
 	while (!scanf_s("%d", &n) || (n < 100 || n>9999))
 	{
