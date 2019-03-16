@@ -1,8 +1,8 @@
-//variant 25
+#include <stdio.h>
+#include <stdlib.h>//variant 25
 //sakovich vlad
-#include "pch.h"
-#include <iostream>
-#include <malloc.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int HowMany(int a)
 {
@@ -45,7 +45,7 @@ void out(int num, int *arr, int a)
 
 int main()
 {
-	int m, kolvo;
+	int m, kolvo, *arr;
 	printf("Input m\n");
 	scanf_s("%d", &m);
 	for (int i = 1; i < m; i++)
