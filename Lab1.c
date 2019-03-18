@@ -17,8 +17,8 @@ int main()
 			value_three *= buffer;
 		}
 		printf("value_three= %d", value_three);
-	}
-	if (start_value >= 1000)//случай, если число четрыхзначное
+	} 
+	else //случай, если число четрыхзначное
 	{
 		while (start_value > 0)//условие выхода
 		{
@@ -28,6 +28,7 @@ int main()
 		}
 		printf("value_four= %d", value_four);
 	}
+	
 	return 0;
 }
 
@@ -40,4 +41,3 @@ int check(int n)
 		rewind(stdin);
 	}
 	return n;
-}
