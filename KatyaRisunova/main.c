@@ -1,43 +1,53 @@
 //
 //  main.c
-//  lab3.1
+//  lab3.2
 //
 //  Created by Katya Risunova on 4/4/19.
 //  Copyright © 2019 Katya Risunova. All rights reserved.
 //
 
 #include <stdio.h>
-#include <time.h>
-
-void print (int *a, int n)
-{
-    for (int i = 0; i < n; i++)
-        printf ("%d ", a[i]);
-    printf("\n");
-}
-
 
 int main(int argc, const char * argv[]) {
-    const int n=30;
-    int soldiers [n];
+    const int n = 20;
+    const int m = 20;
+    int size;
+    int a[n][m];
     for (int i = 0; i < n; i++)
-        soldiers [i] = rand() % 2;
-    for (int i = 0; i < n; i++)
-        if (soldiers [i] == 0)
-            soldiers [i] = 6;
-    print (soldiers, n);
-    int test = 1;
-    while (test){
-        int test2 = 0;
-        for (int i = 0; i < n-1; i++)
-            if (soldiers[i] == 6 && soldiers[i+1] == 1){
-                soldiers [i] = 1;
-                soldiers [i+1] = 6;
-                i++;
-                test2 = 1;
+        for (int j = 0; j < m; j++)
+            a[i][j] = rand() % 2;
+    for (int i=0; i<n; i++){
+        for (int j=0; j<m; j++)
+            printf ("%d ",a[i][j]);
+        printf ("\n");
+    }
+    printf ("введите размер квадрата ");
+    scanf ("%d",&size);
+    int xk, yk, test = 0;
+    for (int i = 0; i < n - size && test == 0; i++)
+        for (int j = 0; j < m - size && test == 0; j++){
+            if (a[i][j] == 0){
+                test = 1;
+                for (int k = 0; k < size; k++){
+                    for (int l = 0; l < size; l++){
+                        if (a[i + k][j + l] == 1)
+                            test = 0;
+                    }
+                }
+                if (test == 1){
+                    xk = i;
+                    yk = j;
+                }
             }
-        test = test2;
-        if (test2)
-            print (soldiers, n);
+        }
+   
+    for (int i=0; i<n; i++){
+        for (int j=0; j<m; j++){
+            if (i >= xk   &&   i <= xk + size - 1   &&   j >= yk   &&   j <= yk + size - 1)
+                printf ("A ");
+            else
+                printf ("%d ",a[i][j]);
+        }
+        printf ("\n");
     }
 }
