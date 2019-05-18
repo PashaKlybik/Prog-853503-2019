@@ -1,0 +1,14 @@
+﻿  Source.c
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(24): warning C4244: функция: преобразование "int" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(24): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(25): warning C4013: system: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(70): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(71): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(73): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(74): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(76): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(77): warning C4244: функция: преобразование "double" в "float", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(78): warning C4244: функция: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(79): warning C4244: функция: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\source\repos\TipoLaba2\TipoLaba2\Source.c(80): warning C4244: функция: преобразование "double" в "int", возможна потеря данных
+  TipoLaba2.vcxproj -> C:\Users\User\source\repos\TipoLaba2\Debug\TipoLaba2.exe
