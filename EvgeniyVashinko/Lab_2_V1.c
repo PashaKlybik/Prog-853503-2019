@@ -30,12 +30,12 @@ int main()
 			break;
 		case 2:
 			system("cls");
-			printf_s("Thank you for using our program!\nAuthor: Evgeniy Vashinko\nVersion: 1.0.2\n");
+			printf("Thank you for using our program!\nAuthor: Evgeniy Vashinko\nVersion: 1.0.2\n");
 			system("pause");
 			return 0;
 		default:  // В случае неверного ввода сообщает об этом пользователю и просит повторить ввод
 			system("cls");
-			printf_s("\n---Wrong input---\n\n");
+			printf("\n---Wrong input---\n\n");
 			break;
 		}
 	}
@@ -43,10 +43,10 @@ int main()
 
 int mainMenu()
 {
-	printf_s("Enter 1 to calculate the parameters");
-	printf_s("\nEnter 2 to exit\n");
+	printf("Enter 1 to calculate the parameters");
+	printf("\nEnter 2 to exit\n");
 	int num;
-	scanf_s("%d", &num);
+	scanf("%d", &num);
 	return num;
 }
 
@@ -54,25 +54,25 @@ void Task()
 {
 	char str[10];
 	float Side;  // Сторона тетраэдра
-	printf_s("Enter the side of tetrahedron: ");
-	scanf_s("%s", str, 10); // Ввод стороны
+	printf("Enter the side of tetrahedron: ");
+	scanf("%s", str); // Ввод стороны
 	if (IsNumber(str) == false || atoi(str) <= 0) // В случае неверного ввода сообщает об этом пользователю
 	{
 		system("cls");
-		printf_s("\n---Wrong input---\n");
+		printf("\n---Wrong input---\n");
 	}
 	else
 	{
 		Side = atof(str);
 		float P = 6 * Side;
-		printf_s("P =  %f", P); // Сумма сторон
-		printf_s("\nS = %f", powl(Side, 2) * sqrt(3)); // Площадь поверхности
-		printf_s("\nr = %f", Side * sqrt(6) / 12); // Радиус вписанной окружности
-		printf_s("\nR = %f", Side * sqrt(6) / 4); // Радиус описанной окружности
-		printf_s("\nH = %f", Side * sqrt(6) / 3); // Высота тетраэдра
-		printf_s("\nV = %f", powl(Side, 3) * sqrt(2) / 12); // Объем тетраэдра
+		printf("P =  %f", P); // Сумма сторон
+		printf("\nS = %f", powl(Side, 2) * sqrt(3)); // Площадь поверхности
+		printf("\nr = %f", Side * sqrt(6) / 12); // Радиус вписанной окружности
+		printf("\nR = %f", Side * sqrt(6) / 4); // Радиус описанной окружности
+		printf("\nH = %f", Side * sqrt(6) / 3); // Высота тетраэдра
+		printf("\nV = %f", powl(Side, 3) * sqrt(2) / 12); // Объем тетраэдра
 	}
-	printf_s("\n\n");
+	printf("\n\n");
 }
 
 bool IsNumber(char* str) {
