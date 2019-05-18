@@ -1,3 +1,0 @@
-﻿  dop1.cpp
-E:\lab\sishka\dop1\dop1\dop1.cpp(15): warning C4244: аргумент: преобразование "__int64" в "size_t", возможна потеря данных
-  dop1.vcxproj -> E:\lab\sishka\dop1\Debug\dop1.exe
