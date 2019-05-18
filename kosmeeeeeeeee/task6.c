@@ -1,4 +1,3 @@
-﻿#include "pch.h"
 #include <stdio.h>
 #include <malloc.h>
 #include <conio.h>
@@ -66,7 +65,7 @@ int main()
 	init(q);
 	int x1,y1,x2,y2;
 	
-	scanf_s("%d", &N);
+	scanf("%d", &N);
 	 arr = (int**)malloc((N+2) * sizeof(int));
 	for (int i = 0; i < N+2; i++)
 		arr[i] = (int*)malloc((N+2) * sizeof(int));
@@ -95,7 +94,7 @@ int main()
 		}
 		printf("\n");
 	}
-	scanf_s("%d%d%d%d", &x1,&y1,&x2,&y2);
+	scanf("%d%d%d%d", &x1,&y1,&x2,&y2);
 	
 	
 	
