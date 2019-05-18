@@ -17,14 +17,14 @@ int main()
 				while (true)
 				{
 					printf("input weight of load in t: ");
-					scanf_s("%d", &weight);
+					scanf("%d", &weight);
 					if (weight < 20 || weight > 300)
 					{
 						printf("wrong input\n");
 						continue;
 					}
 					printf("input distance in km: ");
-					scanf_s("%d", &dist);
+					scanf("%d", &dist);
 					if (dist > 4000)
 					{
 						printf("wrong input\n");
