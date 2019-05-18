@@ -76,8 +76,18 @@ void Task()
 }
 
 bool IsNumber(char* str) {
+	int amountOfPoints = 0;
 	for (int i = 0; i < strlen(str); i++) {
 		if (str[i] < '0' || str[i] > '9') {
+			if (str[i] == '.') 
+			{ 
+				amountOfPoints++;
+				if (amountOfPoints > 1)
+				{
+					return false;
+				}
+				continue; 
+			}
 			return false;
 		}
 	}
