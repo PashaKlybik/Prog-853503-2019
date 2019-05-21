@@ -4,21 +4,20 @@
 #include <string.h>
 #include <math.h>
 
-char* INput(char *initStr); // функция для ввода числа через массив char
-long long int charToint(char *initStr); // перевод char to int
-int happydelitel(long long int); // проверка числа на "счастливость"
-long long int mindel(long long int); // нахождение минимального делителя числа
+char* INput(char *initStr); // С„СѓРЅРєС†РёСЏ РґР»СЏ РІРІРѕРґР° С‡РёСЃР»Р° С‡РµСЂРµР· РјР°СЃСЃРёРІ char
+long long int charToint(char *initStr); // РїРµСЂРµРІРѕРґ char to int
+int happydelitel(long long int); // РїСЂРѕРІРµСЂРєР° С‡РёСЃР»Р° РЅР° "СЃС‡Р°СЃС‚Р»РёРІРѕСЃС‚СЊ"
+long long int mindel(long long int); // РЅР°С…РѕР¶РґРµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РґРµР»РёС‚РµР»СЏ С‡РёСЃР»Р° (Р±РѕР»СЊС€РµРіРѕ 1)
 
 int main(void) {
-	char *inputstring = NULL; // ввод строки
+	char *inputstring = NULL; // РІРІРѕРґ СЃС‚СЂРѕРєРё
 	printf("Enter the original number:  ");
 	inputstring = INput(inputstring);
-	long long nomber = charToint(inputstring); // преобразование в число
+	long long nomber = charToint(inputstring); // РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІ С‡РёСЃР»Рѕ
 	int kolvo = 0;
 	if (happydelitel(nomber))
-		kolvo += 1; // проверка на "счастливость" числа
-	for (int step = mindel(nomber); step <= nomber / step;
-	step++) // подсчет количества счастливых делителей
+		kolvo += 1; // РїСЂРѕРІРµСЂРєР° РЅР° "СЃС‡Р°СЃС‚Р»РёРІРѕСЃС‚СЊ" С‡РёСЃР»Р°
+	for (int step = mindel(nomber); step <= nomber / step; step++) //РїРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‡Р°СЃС‚Р»РёРІС‹С… РґРµР»РёС‚РµР»РµР№
 	{
 		if (nomber % step == 0) {
 			if (happydelitel(step)) {
@@ -33,12 +32,12 @@ int main(void) {
 
 	}
 	printf("The number of almost happy divisors is equal to: %d", kolvo);
-	// вывод результатов
+	// РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ
 	return 0;
 }
 
 char* INput(char* string)
-	// ввод безразмерной строки с динамическим выделением памяти
+	// РІРІРѕРґ Р±РµР·СЂР°Р·РјРµСЂРЅРѕР№ СЃС‚СЂРѕРєРё СЃ РґРёРЅР°РјРёС‡РµСЃРєРёРј РІС‹РґРµР»РµРЅРёРµРј РїР°РјСЏС‚Рё
 {
 	int size = 1, i = 0;
 	string = (char*)malloc(sizeof(char) * size);
@@ -56,10 +55,10 @@ char* INput(char* string)
 	return string;
 }
 
-long long int charToint(char* initStr) // преобразование char в int
+long long int charToint(char* initStr) // РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ char РІ int
 {
 	int size = strlen(initStr);
-	// преобразовывала по половинам, потому что многие стандартные функции не работают с long long
+	// РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РїРѕ РїРѕР»Р°РІРёРЅР°Рј, С‚Р°Рє РєР°Рє РјРЅРѕРіРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅС‹Рµ С„СѓРЅРєС†РёРё РЅРµ СЂР°Р±РѕС‚Р°СЋС‚ СЃ long long
 	long long nomber = 0;
 	int stepen = size / 2;
 
@@ -75,7 +74,7 @@ long long int charToint(char* initStr) // преобразование char в int
 	return nomber;
 }
 
-int happydelitel(long long int delitel) // проверка на счастливость числа
+int happydelitel(long long int delitel) // РїСЂРѕРІРµСЂРєР° РЅР° СЃС‡Р°СЃС‚Р»РёРІРѕСЃС‚СЊ С‡РёСЃР»Р°
 {
 	while (delitel > 0) {
 		if (delitel % 10 == 4 || delitel % 10 == 7)
@@ -87,7 +86,7 @@ int happydelitel(long long int delitel) // проверка на счастливость числа
 }
 
 long long int mindel(long long int number)
-	// нахождение минимального делителя для данного числа
+	// РЅР°С…РѕР¶РґРµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ РґРµР»РёС‚РµР»СЏ РґР»СЏ РґР°РЅРЅРѕРіРѕ С‡РёСЃР»Р°
 {
 	for (int i = 2; i < number; i++) {
 		if (number % i == 0)
