@@ -2,42 +2,42 @@
 #include <stdlib.h>
 #include <malloc.h>
 
-void quicksort(int *, int); // сортировка массива
-int check(int a); // функция для проверки вводимых значений
+void quicksort(int *, int); //СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°
+int check(int a);           //С„СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё РІРІРѕРґРёРјС‹С… Р·РЅР°С‡РµРЅРёР№
 
 int main() {
 	int proverka = 0;
 	int N, *MyMassive;
-	while (!proverka) // ввод количества элементов массива
+	while (!proverka) // РІРІРѕРґ РєРѕР»РёС‡РµСЃС‚РІР° СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
 	{
 		printf("Enter the number of elements in the array: ");
 		scanf("%d", &N);
 		proverka = check(N);
 	}
 	MyMassive = (int*)malloc(N*sizeof(int));
-	printf("Enter array elements: \n"); // ввод элементов массива
+	printf("Enter array elements: \n"); // РІРІРѕРґ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
 	for (int i = 0; i < N; i++) {
 		printf("a[%d] = ", i);
 		scanf("%d", &MyMassive[i]);
 	}
-	quicksort(MyMassive, N); // сортировка массива
+	quicksort(MyMassive, N); // СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°
+	// РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Рё РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ
 	int min = MyMassive[0];
-	// определение максимального и минимального значений для
 	int max = MyMassive[N - 1];
-	// их дальнейшего использования в полученных формулах
+	// РёС… РґР°Р»СЊРЅРµР№С€РµРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РІ РїРѕР»СѓС‡РµРЅРЅС‹С… С„РѕСЂРјСѓР»Р°С…
 	int sum = 0;
-	for (int i = 0; i < N; i++) // подсчет первичной суммы элементов массива
+	for (int i = 0; i < N; i++) //РїРѕРґСЃС‡РµС‚ РїРµСЂРІРёС‡РЅРѕР№ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
 	{
 		sum += MyMassive[i];
 	}
 	int Repetition;
 	printf("Enter the number of repetitions: ");
-	scanf_s("%d", &Repetition); // ввод количества операций
+	scanf_s("%d", &Repetition); // РІРІРѕРґ РєРѕР»РёС‡РµСЃС‚РІР° РѕРїРµСЂР°С†РёР№
 	if (Repetition == 0)
 		printf("sum = %d", sum);
 	else {
 		int i = 1;
-		do { // вычисления сводятся к полученным формулам
+		do { // РІС‹С‡РёСЃР»РµРЅРёСЏ СЃРІРѕРґСЏС‚СЃСЏ Рє РїРѕР»СѓС‡РµРЅРЅС‹Рј С„РѕСЂРјСѓР»Р°Рј
 			sum = 5 * min - sum;
 			if (i == 1)
 				min = min - max;
@@ -47,11 +47,11 @@ int main() {
 
 		printf("sum = %d", sum);
 	}
-	free(MyMassive); // высвобождение памяти
+	free(MyMassive); //РІС‹СЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 	return 0;
 }
 
-void quicksort(int *arr, int size) // сортировка массива
+void quicksort(int *arr, int size) //СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°
 {
 	for (int i = 0; i < size - 1; i++) {
 		for (int j = 0; j < size - i - 1; j++) {
@@ -64,7 +64,7 @@ void quicksort(int *arr, int size) // сортировка массива
 	}
 }
 
-int check(int a) // проверка на ввод
+int check(int a) // РїСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ
 {
 	if (a < 0)
 		return 0;
