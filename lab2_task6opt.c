@@ -1,11 +1,10 @@
 #include <stdio.h>
 
 int matrica(int x1, int y1, int x2, int y2, int** matrix, int n)
-	// функция для подсчета количества шагов(алгоритм волновой трассировки)
+	// С„СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРґСЃС‡РµС‚Р° РєРѕР»РёС‡РµСЃС‚РІР° С€Р°РіРѕРІ(Р°Р»РіРѕСЂРёС‚Рј РІРѕР»РЅРѕРІРѕР№ С‚СЂР°СЃСЃРёСЂРѕРІРєРё)
 {
 	int stop = 0, d = 0;
-	int dx[4] = {1, 0, -1, 0
-	}; // создаем вспомогательные массивы для расстановки шагов
+	int dx[4] = {1, 0, -1, 0}; // СЃРѕР·РґР°РµРј РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјР°СЃСЃРёРІС‹ РґР»СЏ СЂР°СЃСЃС‚Р°РЅРѕРІРєРё С€Р°РіРѕРІ
 	int dy[4] = {0, 1, 0, -1};
 	matrix[x1][y1] = 0;
 
@@ -27,10 +26,10 @@ int matrica(int x1, int y1, int x2, int y2, int** matrix, int n)
 
 	}
 	while (stop == 0 && matrix[x2][y2] == -2);
-	// расстановка значений для определения шагов
+	// СЂР°СЃСЃС‚Р°РЅРѕРІРєР° Р·РЅР°С‡РµРЅРёР№ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ С€Р°РіРѕРІ
 
 	int d1 = 1;
-	while (d1 <= d) // определение количества шагов
+	while (d1 <= d) // РѕРїСЂРµРґРµР»РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° С€Р°РіРѕРІ
 	{
 		for (int x = 0; x < n; x++)
 			for (int y = 0; y < n; y++)
@@ -64,20 +63,20 @@ int matrica(int x1, int y1, int x2, int y2, int** matrix, int n)
 }
 
 int main(int argc, const char * argv[]) {
-	printf("Enter matrix size : "); // ввод размера матрицы
+	printf("Enter matrix size : "); // РІРІРѕРґ СЂР°Р·РјРµСЂР° РјР°С‚СЂРёС†С‹
 	int matrix_size;
 	scanf("%d", &matrix_size);
 
-	int **matrix; // выделение памяти под матрицу
+	int **matrix; // РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РјР°С‚СЂРёС†Сѓ
 	matrix = (int**)malloc(matrix_size*sizeof(int*));
 	for (int i = 0; i < matrix_size; i++)
 		matrix[i] = (int*)malloc(matrix_size*sizeof(int)); ;
-	printf("Enter matrix values\n"); // ввод матрицы
+	printf("Enter matrix values\n"); // РІРІРѕРґ РјР°С‚СЂРёС†С‹
 	for (int i = 0; i < matrix_size; i++)
 		for (int j = 0; j < matrix_size; j++) {
 			scanf("%d", &matrix[i][j]);
 		}
-	int x1, y1; // ввод первой координаты
+	int x1, y1; // РІРІРѕРґ РїРµСЂРІРѕР№ РєРѕРѕСЂРґРёРЅР°С‚С‹
 	printf("Input first koordinate \n");
 	scanf("%d", &x1);
 	scanf("%d", &y1);
@@ -91,7 +90,7 @@ int main(int argc, const char * argv[]) {
 	y2--;
 	int** firstmatrica;
 	firstmatrica = (int**)malloc(matrix_size*sizeof(int*));
-	// создаем матрицу для подсчета первого значения, используя волновой метод
+	// СЃРѕР·РґР°РµРј РјР°С‚СЂРёС†Сѓ РґР»СЏ РїРѕРґСЃС‡РµС‚Р° РїРµСЂРІРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ, РёСЃРїРѕР»СЊР·СѓСЏ РІРѕР»РЅРѕРІРѕР№ РјРµС‚РѕРґ
 	for (int i = 0; i < matrix_size; i++)
 		firstmatrica[i] = (int*)malloc(matrix_size*sizeof(int)); ;
 	for (int i = 0; i < matrix_size; i++)
@@ -105,19 +104,17 @@ int main(int argc, const char * argv[]) {
 				firstmatrica[i][j] = -2;
 		}
 	}
-	matrica(x1, y1, x2, y2, firstmatrica, matrix_size);
-	// вызов функции для определения количества шагов
+	matrica(x1, y1, x2, y2, firstmatrica, matrix_size);// РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РєРѕР»РёС‡РµСЃС‚РІР° С€Р°РіРѕРІ
 	printf("first number = %d\n", firstmatrica[x2][y2]);
 	int min_kolvo = firstmatrica[x2][y2];
 	for (int i = 0; i < matrix_size; i++)
 		free(firstmatrica[i]);
 	free(firstmatrica);
-	for (int i = 0; i < matrix_size;
-	i++) // определение наименьшего количества шагов, если убрать одну фигуру
+	for (int i = 0; i < matrix_size;i++) // РѕРїСЂРµРґРµР»РµРЅРёРµ РЅР°РёРјРµРЅСЊС€РµРіРѕ РєРѕР»РёС‡РµСЃС‚РІР° С€Р°РіРѕРІ, РµСЃР»Рё СѓР±СЂР°С‚СЊ РѕРґРЅСѓ С„РёРіСѓСЂСѓ
 	{
 		for (int j = 0; j < matrix_size; j++) {
-			if (matrix[i][j] == 1) { // находим фигуру
-				matrix[i][j] = 0; // удаляем ее
+			if (matrix[i][j] == 1) {  // РЅР°С…РѕРґРёРј С„РёРіСѓСЂСѓ
+				matrix[i][j] = 0; // СѓРґР°Р»СЏРµРј РµРµ
 				int** secondmatrica;
 				secondmatrica = (int**)malloc(matrix_size*sizeof(int*));
 				for (int i = 0; i < matrix_size; i++)
@@ -135,10 +132,9 @@ int main(int argc, const char * argv[]) {
 				}
 				matrica(x1, y1, x2, y2, secondmatrica, matrix_size);
 				if (secondmatrica[x2][y2] < min_kolvo)
-					min_kolvo = secondmatrica[x2][y2];
-				// если получается меньшее значение, присваиваем переменной новое значение
+					min_kolvo = secondmatrica[x2][y2];// РµСЃР»Рё РїРѕР»СѓС‡Р°РµС‚СЃСЏ РјРµРЅСЊС€РµРµ Р·РЅР°С‡РµРЅРёРµ, РїСЂРёСЃРІР°РёРІР°РµРј РїРµСЂРµРјРµРЅРЅРѕР№ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
 				for (int i = 0; i < matrix_size; i++)
-					free(secondmatrica[i]); // высвобождаем память
+					free(secondmatrica[i]); // РІС‹СЃРІРѕР±РѕР¶РґР°РµРј РїР°РјСЏС‚СЊ
 				free(secondmatrica);
 				matrix[i][j] = 1;
 			}
@@ -146,7 +142,7 @@ int main(int argc, const char * argv[]) {
 		}
 	}
 
-	printf("second number = %d\n", min_kolvo); // вывод значения
+	printf("second number = %d\n", min_kolvo); // РІС‹РІРѕРґ Р·РЅР°С‡РµРЅРёСЏ
 	free(matrix);
 	return 0;
 }
