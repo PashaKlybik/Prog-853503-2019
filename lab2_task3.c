@@ -2,19 +2,19 @@
 #include<stdio.h>
 #include<string.h>
 
-char* create(char*); // функция для ввода безразмерной строки
-char* encode(char* mass, char * out); // функция алгоритм RLE
+char* create(char*); //С„СѓРЅРєС†РёСЏ РґР»СЏ РІРІРѕРґР° Р±РµР·СЂР°Р·РјРµСЂРЅРѕР№ СЃС‚СЂРѕРєРё
+char* encode(char* mass, char * out); // С„СѓРЅРєС†РёСЏ Р°Р»РіРѕСЂРёС‚РјР° RLE
 
 int main() {
-	char *string = NULL; // выделение памяти под вводимую строку
+	char *string = NULL; // РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РІРІРѕРґРёРјСѓСЋ СЃС‚СЂРѕРєСѓ
 	string = (char*)malloc(sizeof(char) * 1);
 	printf("Enter string...\n");
-	create(string); // ввод строки
-	char * encode_out = NULL; // выделение памяти под выходную строку
+	create(string); // РІРІРѕРґ СЃС‚СЂРѕРєРё
+	char * encode_out = NULL; // РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РІС‹С…РѕРґРЅСѓСЋ СЃС‚СЂРѕРєСѓ
 	encode_out = (char*)malloc(sizeof(char) * strlen(string));
-	encode(string, encode_out); // алгорим RLE
-	printf("%s  \n", encode_out); // вывод строки
-	free(encode_out); // высвобождение памяти
+	encode(string, encode_out); // Р°Р»РіРѕСЂРёС‚Рј RLE
+	printf("%s  \n", encode_out); // РІС‹РІРѕРґ СЃС‚СЂРѕРєРё
+	free(encode_out); // РІС‹СЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё
 	free(string);
 	system("PAUSE");
 	return 0;
@@ -31,13 +31,13 @@ char* create(char* string) {
 		}
 		size++;
 		string = (char*)realloc(string, sizeof(char) * size);
-		// выделяем добавочную память под символы
+		// РІС‹РґРµР»СЏРµРј РґРѕР±Р°РІРѕС‡РЅСѓСЋ РїР°РјСЏС‚СЊ РїРѕРґ СЃРёРјРІРѕР»С‹
 		i++;
 	}
 	return string;
 }
 
-char* encode(char* mass, char * out) // алгоритм RLE
+char* encode(char* mass, char * out) // Р°Р»РіРѕСЂРёС‚Рј RLE
 {
 	int kolvo = 1;
 	int sizeout = 0;
