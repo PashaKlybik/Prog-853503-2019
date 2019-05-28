@@ -200,7 +200,7 @@ namespace Labirint_1
             else return false;
         }
 
-        int CurrentX = 16, CurrentY = 16;
+        int CurrentX = 14, CurrentY = 14;
         int TempI = 1, TempJ = 1;
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -216,8 +216,8 @@ namespace Labirint_1
                 CreateFrame();
                 Algorithm();
 
-                CurrentX = 16;
-                CurrentY = 16;
+                CurrentX = 14;
+                CurrentY = 14;
                 TempI = 1;
                 TempJ = 1;
                 Player_U.Location = new Point(CurrentX, CurrentY);
