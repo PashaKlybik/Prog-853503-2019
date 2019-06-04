@@ -6,7 +6,7 @@
 int main(int argc, const char * argv[]) 
 {
 	setlocale(LC_ALL, "Russian");
-	printf("Введите размер поля \n");
+	printf("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РїРѕР»СЏ:\n");
 	int n;
 	scanf_s("%d", &n);
 	int **a;
@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
 	{
 		a[i] = (int*)malloc(n * sizeof(int));
 	}
-	printf("Введите матрицу \n");
+	printf("Р’РІРµРґРёС‚Рµ РјР°С‚СЂРёС†Сѓ:\n");
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
@@ -34,13 +34,13 @@ int main(int argc, const char * argv[])
 		}
 	}
 	int xn, yn;
-	printf("Введите координаты старта \n");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЃС‚Р°СЂС‚Р°:\n");
 	scanf_s("%d", &xn);
 	scanf_s("%d", &yn);
 	xn--;
 	yn--;
 	int xk, yk;
-	printf("Введите координаты финиша\n");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ С„РёРЅРёС€Р°:\n");
 	scanf_s("%d", &xk);
 	scanf_s("%d", &yk);
 	xk--;
