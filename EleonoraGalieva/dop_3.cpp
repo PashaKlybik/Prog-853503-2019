@@ -32,14 +32,14 @@ int main()
 	bool flag = true;
 	while (flag)
 	{
-		printf("\nВведите строку:\n");
+		printf("\nР’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ:\n");
 		gets_s(num);
 		for (int i = 0; i < strlen(num); i++)
 		{
 			if ((num[i] >= 'A'&&num[i] <= 'z') == false)
 			{
 				flag = true;
-				printf("\nСтрока должна содержать только буквы!");
+				printf("\nРЎС‚СЂРѕРєР° РґРѕР»Р¶РЅР° СЃРѕРґРµСЂР¶Р°С‚СЊ С‚РѕР»СЊРєРѕ Р±СѓРєРІС‹!");
 				break;
 			}
 			else flag = false;
@@ -81,7 +81,7 @@ int main()
 		}
 	}
 	result[j]= '\0';
-	printf("\nРезультат: %s\n", result);
+	printf("\nР РµР·СѓР»СЊС‚Р°С‚: %s\n", result);
 	free(result);
 	_getch();
 	return 0;
