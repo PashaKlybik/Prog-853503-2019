@@ -2,7 +2,6 @@
 #define FALSE 0
 
 #include <stdio.h>
-#include <Windows.h>
 #include <string.h>
 #include <math.h>
 #include <conio.h>
@@ -31,7 +30,7 @@ long long Input()
 			}
 			else
 			{
-				printf("\nНекорректный ввод! Попробуйте еще раз:\n");
+				printf("\nРќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ! РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·:\n");
 				str[0] = '\0';
 				wrong_symbol = TRUE;
 				break;
@@ -53,7 +52,7 @@ int main()
 	N = Input();
 	int cycle = TRUE;
 	int sum = 0;
-	for (long long i = 1; i <= N; i++)
+	for (long long i = 1; i <= sqrt(N); i++)
 	{
 		if (N%i == 0)
 		{
@@ -64,9 +63,19 @@ int main()
 					sum++;
 				num /= 10;
 			}
-		}		
+			if (i*i != N)
+			{
+				long long num = N / i;
+				while (num > 0)
+				{
+					if (num % 10 == 4 || num % 10 == 7)
+						sum++;
+					num /= 10;
+				}
+			}
+		}
 	}
-	printf("\nКоличество делителей числа, которые являются почти счастливыми:%d\n", sum);
+	printf("\nРљРѕР»РёС‡РµСЃС‚РІРѕ РґРµР»РёС‚РµР»РµР№ С‡РёСЃР»Р°, РєРѕС‚РѕСЂС‹Рµ СЏРІР»СЏСЋС‚СЃСЏ РїРѕС‡С‚Рё СЃС‡Р°СЃС‚Р»РёРІС‹РјРё:%d\n", sum);
 	system("pause");
 	return 0;
 }
